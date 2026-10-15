@@ -1,0 +1,668 @@
+/* ==========================================================================
+   EmployeeHub — Phase 5: Growth, Performance & Learning Stylesheet
+   ========================================================================== */
+
+/* Sub-navigation Tabs for Growth Modules */
+.growth-subnav-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 6px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  box-shadow: var(--shadow-xs);
+}
+
+.growth-subnav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.growth-subnav-btn:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-subtle);
+}
+
+.growth-subnav-btn.active {
+  background: var(--color-brand);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
+}
+
+.growth-subnav-btn .badge-pill {
+  font-size: 0.6875rem;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.2);
+  color: inherit;
+}
+
+/* Growth KPI Metric Cards */
+.growth-metric-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.growth-metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.growth-metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-brand);
+  opacity: 0.85;
+}
+
+.growth-metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.growth-metric-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.growth-metric-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-brand-light);
+  color: var(--color-brand);
+}
+
+.growth-metric-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.growth-metric-subtitle {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Rating Scale & Criteria Form Layout */
+.rating-criteria-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: border-color 0.15s ease;
+}
+
+.rating-criteria-card:hover {
+  border-color: var(--color-border-brand);
+}
+
+.rating-criteria-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 12px;
+}
+
+.rating-criteria-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.rating-criteria-desc {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.rating-weight-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--color-brand-light);
+  color: var(--color-brand);
+  white-space: nowrap;
+}
+
+.rating-selector-group {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.rating-option-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 4px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-app);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.rating-option-btn:hover {
+  border-color: var(--color-brand);
+  background: var(--color-brand-light);
+}
+
+.rating-option-btn.selected {
+  border-color: var(--color-brand);
+  background: var(--color-brand);
+  color: #ffffff;
+}
+
+.rating-option-btn.selected .rating-num,
+.rating-option-btn.selected .rating-label {
+  color: #ffffff;
+}
+
+.rating-num {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.rating-label {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* Overall Score Badge Card */
+.score-summary-banner {
+  background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.score-summary-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.score-summary-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.score-summary-desc {
+  font-size: 0.8125rem;
+  opacity: 0.85;
+}
+
+.score-dial-box {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 10px 20px;
+  backdrop-filter: blur(4px);
+}
+
+.score-dial-val {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.score-dial-max {
+  font-size: 1rem;
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+/* Goals & OKR Cards */
+.goal-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.goal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.goal-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.goal-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.goal-category-tag {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-subtle);
+  color: var(--color-text-secondary);
+}
+
+.goal-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+  background: var(--color-bg-subtle);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+}
+
+.goal-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.goal-meta-label {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.goal-meta-val {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--color-border);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: var(--color-brand);
+  transition: width 0.3s ease;
+}
+
+.progress-fill.fill-success { background: var(--color-success); }
+.progress-fill.fill-warning { background: var(--color-warning); }
+.progress-fill.fill-danger  { background: var(--color-danger); }
+
+/* Milestone Checklist in Goal Cards */
+.milestone-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.milestone-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.milestone-item.completed {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+/* Skills Matrix & Badges */
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.skill-badge-expert {
+  background: #fdf2f8;
+  color: #9d174d;
+  border-color: #fbcfe8;
+}
+
+.skill-badge-advanced {
+  background: #eef2ff;
+  color: #3730a3;
+  border-color: #c7d2fe;
+}
+
+.skill-badge-intermediate {
+  background: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+
+.skill-badge-beginner {
+  background: #fffbeb;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+/* Training Course Cards */
+.course-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.course-card-header {
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.course-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.course-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.course-pill {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Promotion Recommendation Candidate Dossier */
+.promo-dossier-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.promo-dossier-card.highlight {
+  border-color: var(--color-brand);
+  background: linear-gradient(180deg, #faf5ff 0%, #ffffff 40%);
+}
+
+.promo-dossier-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.promo-candidate-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.promo-candidate-role {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.promo-stat-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.promo-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.promo-explain-box {
+  background: var(--color-bg-subtle);
+  border-left: 3px solid var(--color-brand);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 12px 16px;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* Career Path Progress Flow Tree */
+.career-path-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.career-path-flow::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 31px;
+  width: 2px;
+  background: var(--color-border-brand);
+}
+
+.career-step-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+}
+
+.career-step-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: var(--color-brand);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  z-index: 2;
+  box-shadow: 0 0 0 4px var(--color-bg-surface);
+}
+
+.career-step-card {
+  flex: 1;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-xs);
+}
+
+/* Feedback & Kudos Cards */
+.kudos-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.kudos-badge-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.kudos-quote {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.kudos-author-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 8px;
+  margin-top: 4px;
+}
+
+/* Self-Assessment vs Manager Tabs in Appraisals */
+.role-perspective-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-md);
+  padding: 6px 12px;
+  margin-bottom: 16px;
+}
+
+.role-perspective-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.role-tab-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.role-tab-btn.active {
+  background: var(--color-bg-surface);
+  color: var(--color-brand);
+  box-shadow: var(--shadow-xs);
+}
+
+.demo-role-notice {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

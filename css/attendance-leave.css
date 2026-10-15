@@ -1,0 +1,559 @@
+/**
+ * Phase 4: Attendance Management, Leave Management, Notifications & Announcements Styles
+ * File: css/attendance-leave.css
+ */
+
+/* ==========================================================================
+   1. Attendance & Leave Status Badges
+   ========================================================================== */
+.badge-present {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  font-weight: 600;
+}
+
+.badge-absent {
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  font-weight: 600;
+}
+
+.badge-late {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  font-weight: 600;
+}
+
+.badge-half-day {
+  background: rgba(59, 130, 246, 0.12);
+  color: #2563eb;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  font-weight: 600;
+}
+
+.badge-on-leave {
+  background: rgba(139, 92, 246, 0.12);
+  color: #7c3aed;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  font-weight: 600;
+}
+
+.badge-holiday {
+  background: rgba(107, 114, 128, 0.12);
+  color: #4b5563;
+  border: 1px solid rgba(107, 114, 128, 0.25);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   2. Daily Attendance Entry Quick Buttons
+   ========================================================================== */
+.quick-status-group {
+  display: inline-flex;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-surface);
+}
+
+.btn-status-toggle {
+  border: none;
+  background: transparent;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+  border-right: 1px solid var(--color-border);
+}
+
+.btn-status-toggle:last-child {
+  border-right: none;
+}
+
+.btn-status-toggle:hover {
+  background: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+
+.btn-status-toggle.active-p {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.btn-status-toggle.active-a {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.btn-status-toggle.active-l {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+.btn-status-toggle.active-hd {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.btn-status-toggle.active-ol {
+  background: #8b5cf6;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   3. Leave Balances Quota Cards & Visual Bars
+   ========================================================================== */
+.leave-quota-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.leave-quota-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.leave-quota-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.leave-quota-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.leave-quota-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.leave-quota-code {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.leave-quota-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.leave-quota-val {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+}
+
+.leave-quota-denom {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.leave-progress-track {
+  height: 6px;
+  background: var(--color-bg-subtle);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.leave-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.leave-quota-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   4. Leave Approval Queue Cards
+   ========================================================================== */
+.approval-queue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+}
+
+.approval-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: border-color var(--transition-fast);
+}
+
+.approval-card:hover {
+  border-color: var(--color-brand);
+}
+
+.approval-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.approval-card-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-brand), var(--color-brand-hover));
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.approval-card-emp-info {
+  flex: 1;
+}
+
+.approval-card-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.approval-card-sub {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.approval-details-box {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  font-size: 0.8125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.approval-reason-text {
+  font-style: italic;
+  color: var(--color-text-secondary);
+  border-left: 2px solid var(--color-brand);
+  padding-left: 8px;
+  margin-top: 4px;
+}
+
+.approval-card-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* ==========================================================================
+   5. Notification Center Feed & Filters
+   ========================================================================== */
+.notification-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notif-feed-item {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.notif-feed-item:hover {
+  background: var(--color-bg-hover);
+}
+
+.notif-feed-item.unread {
+  background: rgba(37, 99, 235, 0.03);
+  border-left: 3px solid var(--color-brand);
+}
+
+.notif-feed-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.notif-icon-attendance {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+}
+
+.notif-icon-leave {
+  background: rgba(139, 92, 246, 0.15);
+  color: #7c3aed;
+}
+
+.notif-icon-payroll {
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+}
+
+.notif-icon-announcement {
+  background: rgba(59, 130, 246, 0.15);
+  color: #2563eb;
+}
+
+.notif-feed-body {
+  flex: 1;
+}
+
+.notif-feed-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.notif-feed-msg {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.notif-feed-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.notif-feed-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ==========================================================================
+   6. Company Announcements Cards
+   ========================================================================== */
+.announcement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+}
+
+.announcement-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.announcement-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.announcement-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.announcement-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.35;
+}
+
+.announcement-card-content {
+  font-size: 0.84375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.announcement-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   7. Employee Self-Service (ESS) Styles
+   ========================================================================== */
+.ess-hero {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-md);
+}
+
+.ess-hero-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ess-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-brand), #38bdf8);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.ess-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.ess-meta {
+  font-size: 0.8125rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.ess-selector-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ess-selector-label {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.ess-selector-select {
+  background: #0f172a;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   8. Holiday Calendar List in Settings
+   ========================================================================== */
+.holiday-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.holiday-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+}
+
+.holiday-date-badge {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-brand);
+}
+
+/* ==========================================================================
+   9. Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  .leave-quota-grid,
+  .approval-queue-grid,
+  .announcement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ess-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quick-status-group {
+    display: flex;
+  }
+}

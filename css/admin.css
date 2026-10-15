@@ -1,0 +1,140 @@
+/**
+ * EmployeeHub — Phase 6: System Administration, Reports, Audit Logs, and Import/Export Styles
+ */
+
+/* Admin Navigation Tabs */
+.admin-subnav-bar {
+  display: flex;
+  gap: 8px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 6px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-subnav-btn {
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.admin-subnav-btn:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-subtle);
+}
+
+.admin-subnav-btn.active {
+  background: var(--color-brand);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(79, 70, 229, 0.3);
+}
+
+/* User & Role Cards */
+.user-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.user-status-active {
+  background: #ecfdf5;
+  color: #059669;
+}
+.user-status-inactive {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* CSV Upload Dropzone */
+.csv-dropzone {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 20px;
+  text-align: center;
+  background: var(--color-bg-subtle);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.csv-dropzone:hover, .csv-dropzone.dragover {
+  border-color: var(--color-brand);
+  background: #f5f3ff;
+}
+
+.csv-dropzone-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 12px;
+  color: var(--color-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e7ff;
+  border-radius: 50%;
+}
+
+/* Audit Log Table formatting */
+.audit-action-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.audit-action-create { background: #dcfce7; color: #15803d; }
+.audit-action-update { background: #e0e7ff; color: #4338ca; }
+.audit-action-delete { background: #fee2e2; color: #b91c1c; }
+.audit-action-auth   { background: #fef3c7; color: #b45309; }
+
+/* Import Preview Validation Box */
+.import-summary-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.import-stat-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+}
+
+.import-stat-val {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* Login Modal Layout */
+.login-dialog {
+  max-width: 420px;
+}
+
+.demo-credentials-box {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  margin-top: 16px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}

@@ -1,0 +1,185 @@
+/* Responsive Media Queries */
+
+/* ==========================================================================
+   LAPTOP & LARGE TABLETS (1024px - 1366px)
+   ========================================================================== */
+@media (max-width: 1280px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .content-body {
+    padding: 24px 24px 40px;
+  }
+}
+
+/* ==========================================================================
+   TABLET (768px - 1023px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    padding: 0 20px;
+  }
+
+  .topbar-search {
+    max-width: 320px;
+  }
+}
+
+/* ==========================================================================
+   MOBILE & SMALL TABLETS (320px - 767px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Mobile Sidebar as Drawer */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-xl);
+    z-index: var(--z-sidebar);
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .btn-sidebar-collapse {
+    display: none !important;
+  }
+
+  .btn-mobile-menu {
+    display: inline-flex;
+  }
+
+  /* Topbar Adjustments */
+  .topbar {
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .topbar-search {
+    display: none; /* Accessible via search button/modal on mobile */
+  }
+
+  .topbar-date {
+    display: none;
+  }
+
+  .topbar-user-details {
+    display: none;
+  }
+
+  .content-body {
+    padding: 16px 16px 36px;
+  }
+
+  /* Dashboard Adjustments */
+  .dashboard-welcome {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .welcome-actions {
+    width: 100%;
+  }
+
+  .welcome-actions .btn {
+    flex: 1;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .table-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .table-search-box {
+    max-width: 100%;
+    min-width: 100%;
+  }
+
+  .table-filters {
+    justify-content: space-between;
+  }
+
+  .table-filter-select {
+    flex: 1;
+  }
+
+  /* Modals on Mobile */
+  .modal-dialog {
+    max-width: 100%;
+    margin: 10px;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+  }
+
+  /* Toast Container */
+  .toast-container {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    max-width: none;
+    width: auto;
+  }
+
+  .phase-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .phase-hero-info {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   EXTRA SMALL SCREENS (< 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .welcome-greeting {
+    font-size: 1.25rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .card-header {
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .card-body {
+    padding: 16px;
+  }
+
+  .candidate-item, .notification-panel-item {
+    padding: 12px 14px;
+  }
+}

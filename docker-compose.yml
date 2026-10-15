@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # 1. PostgreSQL Database Service
+  postgres:
+    image: postgres:16-alpine
+    container_name: employeehub-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-employeehub_db}
+      POSTGRES_USER: ${POSTGRES_USER:-employeehub_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ChangeMeSecurely123!}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-employeehub_user} -d ${POSTGRES_DB:-employeehub_db}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - employeehub-net
+
+  # 2. EmployeeHub Application Service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: employeehub-app
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DB_CLIENT: postgres
+      DATABASE_URL: postgresql://${POSTGRES_USER:-employeehub_user}:${POSTGRES_PASSWORD:-ChangeMeSecurely123!}@postgres:5432/${POSTGRES_DB:-employeehub_db}
+      JWT_SECRET: ${JWT_SECRET:-9f8a3c8e4d2b1a0f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d9c8b7a6f}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:3000}
+    networks:
+      - employeehub-net
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  employeehub-net:
+    driver: bridge

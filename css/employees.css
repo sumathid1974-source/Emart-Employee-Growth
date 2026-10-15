@@ -1,0 +1,218 @@
+/* Employee Management Module Styles */
+
+/* Filter Toolbar Extended for Multi-Dropdown Filtering */
+.filter-toolbar {
+  padding: 16px 20px;
+  background: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-group-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.filter-group-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.table-filter-item {
+  min-width: 140px;
+}
+
+/* Employee Table Specifics */
+.employee-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.employee-avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+}
+
+.employee-cell-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.employee-cell-name {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+}
+
+.employee-cell-id {
+  font-size: 0.6875rem;
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+}
+
+/* Form Grouping Sections */
+.form-section {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.form-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.form-section-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-section-desc {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+.compensation-preview-card {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-top: 10px;
+}
+
+.compensation-preview-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #166534;
+  margin-bottom: 4px;
+}
+
+.compensation-preview-text {
+  font-size: 0.75rem;
+  color: #15803d;
+  line-height: 1.4;
+}
+
+/* Employee Profile View Modal */
+.profile-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  padding: 28px 24px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.profile-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.profile-hero-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #4f46e5 0%, #818cf8 100%);
+  color: #ffffff;
+  font-size: 1.375rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-hero-details h3 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.profile-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: #94a3b8;
+  flex-wrap: wrap;
+}
+
+.profile-section-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-section-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.profile-data-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.profile-data-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.profile-data-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
